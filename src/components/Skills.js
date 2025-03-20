@@ -35,20 +35,24 @@ const SkillBar = ({ skill, percentage }) => {
 
 const Skills = () => {
   const skillsData = [
-    { skill: 'HTML', percentage: 90 },
-    { skill: 'CSS', percentage: 85 },
-    { skill: 'JavaScript', percentage: 75 },
-    { skill: 'Tailwind CSS', percentage: 95 },
-    { skill: 'Python', percentage: 80 },
-    { skill: 'React', percentage: 88 },
-    { skill: 'Node.js', percentage: 70 },
-    { skill: 'Express.js', percentage: 65 },
-    { skill: 'SQL', percentage: 82 },
+    { skill: 'HTML', percentage: 95 },
+    { skill: 'CSS', percentage: 92 },
+    { skill: 'JavaScript', percentage: 80 },
+    { skill: 'Java', percentage: 65 },
+    { skill: 'Tailwind CSS', percentage: 90 },
+    { skill: 'Python', percentage: 40 },
+    { skill: 'React', percentage: 89 },
+    { skill: 'Next JS', percentage: 81 },
+    { skill: 'Node.js', percentage: 80 },
+    { skill: 'Express.js', percentage: 82 },
+    { skill: 'SQL', percentage: 85 },
+    { skill: 'Mongo DB', percentage: 75 },
+    { skill: 'MySQL', percentage: 85 }
   ];
 
   return (
-    <div className="w-full p-4 sm:p-8 bg-white">
-      <h2 className="text-2xl font-bold mb-6 text-center">My Skills</h2>
+    <div className="w-full p-4 sm:p-8 bg-white" id="skills">
+      <b className="text-xl font-bold mb-6 text-center">My Skills</b>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
         {skillsData.map((skill) => (
           <SkillBar key={skill.skill} skill={skill.skill} percentage={skill.percentage} />
