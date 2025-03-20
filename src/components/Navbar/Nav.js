@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {Link} from 'react-scroll'
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,8 +8,11 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const closeMenu = ()=>{
+    setIsMenuOpen(false)
+  }
   useEffect(() => {
+    
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
@@ -33,37 +37,38 @@ const Nav = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="relative bg-gradient-to-r from-blue-900 to-blue-950 shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-5">
+    <nav className="relative bg-gradient-to-r from-blue-900 to-blue-950 shadow-md z-50">
+      <div className="container  flex items-center justify-between  py-5">
         {/* Logo (Left) */}
-        <div className="flex items-center">
-          <a href="#" className="font-bold text-xl text-white">
-            Left Logo
-          </a>
-        </div>
+       
+          
+          <img src="leti logo2.png" width={70} height={60}/>
+         
+       
 
         {/* Desktop Menu (Right) */}
         <div className="hidden md:flex space-x-2 text-sm">
-          <a href="#" className="text-slate-200 hover:bg-white px-5 py-1 rounded hover:text-black transition ease-in-out duration-300">
+          <a href="#" className="text-slate-200 hover:bg-white px-5 py-2 rounded hover:text-black transition ease-in duration-300">
             Home
           </a>
-          <a href="#" className="text-slate-200 hover:bg-white px-5 py-1 rounded hover:text-black transition duration-300">
+          <Link  to="skills" spy={true} smooth={true} offset={-60} duration={400} className="text-slate-200 hover:bg-white px-5 cursor-pointer py-2 rounded hover:text-black transition ease-in duration-300">
             Skills
-          </a>
-          <a href="#" className="text-slate-200 hover:bg-white px-5 py-1 rounded hover:text-black transition duration-300">
+          </Link>
+     
+          <Link to="projects" spy={true} smooth={true} offset={-60} duration={400}  className="text-slate-200 cursor-pointer hover:bg-white px-5 py-2 rounded hover:text-black transition ease-in duration-300">
             Projects
-          </a>
-          <a href="#" className="text-slate-200 hover:bg-white px-5 py-1 rounded hover:text-black transition duration-300">
+          </Link>
+          <Link to="testimonials" spy={true} smooth={true} offset={-60} duration={400}  className="text-slate-200 cursor-pointer hover:bg-white px-5 py-2 rounded hover:text-black transition ease-in duration-300">
             Testimonials
-          </a>
-          <a href="#" className="text-slate-200 hover:bg-white px-5 py-1 rounded hover:text-black transition duration-300">
+          </Link>
+          <Link to="contact" spy={true} smooth={true} offset={-60} duration={400}  activeClass="bg-white" className="text-slate-200 cursor-pointer hover:bg-white px-5 py-2 rounded hover:text-black transition ease-in duration-300">
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
+          <button onClick={toggleMenu} className="text-slate-200 focus:outline-none">
             <svg
               className="h-6 w-6"
               fill="none"
@@ -85,15 +90,15 @@ const Nav = () => {
       {/* Mobile Side Menu */}
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 h-full w-64 bg-cyan-50 shadow-md transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-blue-950 shadow-md transform transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="p-4 flex justify-between items-center">
-          <a href="#" className="font-bold text-xl text-blue-600">
-            Letera Tesfaye
-          </a>
-          <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
+          
+          <img src="leti logo2.png" width={70} height={60}/>
+         
+          <button onClick={toggleMenu} className="text-slate-200 focus:outline-none">
             <svg
               className="h-6 w-6"
               fill="none"
@@ -111,22 +116,22 @@ const Nav = () => {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-5">
-          <a href="#" className="text-gray-700 hover:bg-cyan-100 hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300">
+          <Link href="/" className="text-slate-200 hover:bg-white hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300" onClick={closeMenu}>
             Home
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition duration-300">
+          </Link>
+          <Link to="skills" className="text-slate-200 cursor-pointer hover:bg-white hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300" onClick={closeMenu}>
             Skills
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition duration-300">
+          </Link>
+          <Link to="projects" className="text-slate-200 cursor-pointer hover:bg-white hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300" onClick={closeMenu}>
             Projects
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition duration-300">
+          </Link>
+          <Link to="testimonials" className="text-slate-200 cursor-pointer hover:bg-white hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300" onClick={closeMenu}>
             Testimonials
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition duration-300">
+          </Link>
+          <Link to="contact" className="text-slate-200 cursor-pointer hover:bg-white hover:text-gray-950 tex-white py-2 w-full rounded  transition ease-in duration-300" onClick={closeMenu}>
             Contact
-          </a>
-          <p className='absolute bottom-5 text-sm'>&copy; All rights reserved. Powered by Letera Tesfaye</p>
+          </Link>
+          <p className='absolute bottom-5 text-xs text-slate-200'>&copy; All rights reserved. Powered by Letera Tesfaye</p>
         </div>
       </div>
     </nav>
